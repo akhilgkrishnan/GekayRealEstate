@@ -16,7 +16,8 @@ img {
 
 #showcase {
   background-image: url(../img/showcase.jpg) no-repeat top center fixed/cover;
-  background: url(../img/showcase.jpg) ;
+  background: url(../img/showcase.jpg);
+  background-size: cover;
   position: relative;
   min-height: 650px;
   color: #fff;
