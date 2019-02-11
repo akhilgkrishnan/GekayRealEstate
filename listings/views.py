@@ -17,7 +17,7 @@ def listing(request, listing_id):
     context ={
         'listing':listing
     }
-    return render(request, 'listings/listing.html')
+    return render(request, 'listings/listing.html',context)
 def search(request):
     return render(request, 'listings/search.html')
 
