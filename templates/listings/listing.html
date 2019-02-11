@@ -1,1 +1,186 @@
-<h1>Currently no dynamic data is available</h1>
+{% extends 'base.html'%}
+
+{% block content %}
+<section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <h1 class="display-4">45 Drivewood Circle</h1>
+          <p class="lead">
+            <i class="fas fa-map-marker"></i> Norwood MA, 02062</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <section id="bc" class="mt-3">
+    <div class="container">
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="index.html">Home</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="listings.html">Listings</a>
+          </li>
+          <li class="breadcrumb-item active">42 Drivewood Circle</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Listing -->
+  <section id="listing" class="py-4">
+    <div class="container">
+      <a href="listings.html" class="btn btn-light mb-4">Back To Listings</a>
+      <div class="row">
+        <div class="col-md-9">
+          <!-- Home Main Image -->
+          <img src="assets/img/homes/home-1.jpg" alt="" class="img-main img-fluid mb-3">
+          <!-- Thumbnails -->
+          <div class="row mb-5 thumbs">
+            <div class="col-md-2">
+              <a href="assets/img/homes/home-inside-1.jpg" data-lightbox="home-images">
+                <img src="assets/img/homes/home-inside-1.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+            <div class="col-md-2">
+              <a href="assets/img/homes/home-inside-2.jpg" data-lightbox="home-images">
+                <img src="assets/img/homes/home-inside-2.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+            <div class="col-md-2">
+              <a href="assets/img/homes/home-inside-3.jpg" data-lightbox="home-images">
+                <img src="assets/img/homes/home-inside-3.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+            <div class="col-md-2">
+              <a href="assets/img/homes/home-inside-4.jpg" data-lightbox="home-images">
+                <img src="assets/img/homes/home-inside-4.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+            <div class="col-md-2">
+              <a href="assets/img/homes/home-inside-5.jpg" data-lightbox="home-images">
+                <img src="assets/img/homes/home-inside-5.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+            <div class="col-md-2">
+              <a href="assets/img/homes/home-inside-6.jpg" data-lightbox="home-images">
+                <img src="assets/img/homes/home-inside-6.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+          <!-- Fields -->
+          <div class="row mb-5 fields">
+            <div class="col-md-6">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item text-secondary">
+                  <i class="fas fa-money-bill-alt"></i> Asking Price:
+                  <span class="float-right">$490,000</span>
+                </li>
+                <li class="list-group-item text-secondary">
+                  <i class="fas fa-bed"></i> Bedrooms:
+                  <span class="float-right">3</span>
+                </li>
+                <li class="list-group-item text-secondary">
+                  <i class="fas fa-bath"></i> Bathrooms:
+                  <span class="float-right">2</span>
+                </li>
+                <li class="list-group-item text-secondary">
+                  <i class="fas fa-car"></i> Garage:
+                  <span class="float-right">2
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item text-secondary">
+                  <i class="fas fa-th-large"></i> Square Feet:
+                  <span class="float-right">3200</span>
+                </li>
+                <li class="list-group-item text-secondary">
+                  <i class="fas fa-square"></i> Lot Size:
+                  <span class="float-right">2.5 Acres
+                  </span>
+                </li>
+                <li class="list-group-item text-secondary">
+                  <i class="fas fa-calendar"></i> Listing Date:
+                  <span class="float-right">8/30/2018</span>
+                </li>
+                <li class="list-group-item text-secondary">
+                  <i class="fas fa-bed"></i> Realtor:
+                  <span class="float-right">Kyle Brown
+                  </span>
+                </li>
+
+
+              </ul>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <div class="row mb-5">
+            <div class="col-md-12">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia recusandae esse reiciendis officia omnis non rerum dicta
+              cupiditate nostrum molestias deserunt aut minus inventore animi atque, consequuntur ad fugit. Possimus culpa
+              blanditiis repellendus ipsa similique ullam, natus error dolor harum.
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card mb-3">
+            <img class="card-img-top" src="assets/img/realtors/kyle.jpg" alt="Seller of the month">
+            <div class="card-body">
+              <h5 class="card-title">Property Realtor</h5>
+              <h6 class="text-secondary">Kyle Brown</h6>
+            </div>
+          </div>
+          <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Make An Inquiry</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inquiry Modal -->
+  <div class="modal fade" id="inquiryModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="inquiryModalLabel">Make An Inquiry</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="property_name" class="col-form-label">Property:</label>
+              <input type="text" name="listing" class="form-control" value="45 Drivewood Cirlce" disabled>
+            </div>
+            <div class="form-group">
+              <label for="name" class="col-form-label">Name:</label>
+              <input type="text" name="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="email" class="col-form-label">Email:</label>
+              <input type="email" name="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="phone" class="col-form-label">Phone:</label>
+              <input type="text" name="phone" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="message" class="col-form-label">Message:</label>
+              <textarea name="message" class="form-control"></textarea>
+            </div>
+            <hr>
+            <input type="submit" value="Send" class="btn btn-block btn-secondary">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
