@@ -49,7 +49,7 @@
             {% if listing.photo_2 %}
             <div class="col-md-2">
               <a href="{{ listing.photo_2.url }}" data-lightbox="home-images">
-                <img src="{{ listing.photo_2.url }} alt="" class="img-fluid">
+                <img src="{{ listing.photo_2.url }}" alt="" class="img-fluid">
               </a>
             </div>
             {% endif %}
@@ -88,19 +88,19 @@
               <ul class="list-group list-group-flush">
                 <li class="list-group-item text-secondary">
                   <i class="fas fa-money-bill-alt"></i> Asking Price:
-                  <span class="float-right">$490,000</span>
+                  <span class="float-right">${{ listing.price }}</span>
                 </li>
                 <li class="list-group-item text-secondary">
                   <i class="fas fa-bed"></i> Bedrooms:
-                  <span class="float-right">3</span>
+                  <span class="float-right">{{ listing.bedrooms }}</span>
                 </li>
                 <li class="list-group-item text-secondary">
                   <i class="fas fa-bath"></i> Bathrooms:
-                  <span class="float-right">2</span>
+                  <span class="float-right">{{ listing.bathrooms }}</span>
                 </li>
                 <li class="list-group-item text-secondary">
                   <i class="fas fa-car"></i> Garage:
-                  <span class="float-right">2
+                  <span class="float-right">{{ listing.garage }}
                   </span>
                 </li>
               </ul>
@@ -109,20 +109,20 @@
               <ul class="list-group list-group-flush">
                 <li class="list-group-item text-secondary">
                   <i class="fas fa-th-large"></i> Square Feet:
-                  <span class="float-right">3200</span>
+                  <span class="float-right">{{ listing.sqft }}</span>
                 </li>
                 <li class="list-group-item text-secondary">
                   <i class="fas fa-square"></i> Lot Size:
-                  <span class="float-right">2.5 Acres
+                  <span class="float-right">{{ listing.lot_size }} Acres
                   </span>
                 </li>
                 <li class="list-group-item text-secondary">
                   <i class="fas fa-calendar"></i> Listing Date:
-                  <span class="float-right">8/30/2018</span>
+                  <span class="float-right">{{ listing.list_data }}</span>
                 </li>
                 <li class="list-group-item text-secondary">
                   <i class="fas fa-bed"></i> Realtor:
-                  <span class="float-right">Kyle Brown
+                  <span class="float-right">{{ listing.realtor }}
                   </span>
                 </li>
 
@@ -134,18 +134,16 @@
           <!-- Description -->
           <div class="row mb-5">
             <div class="col-md-12">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia recusandae esse reiciendis officia omnis non rerum dicta
-              cupiditate nostrum molestias deserunt aut minus inventore animi atque, consequuntur ad fugit. Possimus culpa
-              blanditiis repellendus ipsa similique ullam, natus error dolor harum.
+              {{ listing.description }}
             </div>
           </div>
         </div>
         <div class="col-md-3">
           <div class="card mb-3">
-            <img class="card-img-top" src="assets/img/realtors/kyle.jpg" alt="Seller of the month">
+            <img class="card-img-top" src="{{ listing.realtor.photo.url}}" alt=" ">
             <div class="card-body">
               <h5 class="card-title">Property Realtor</h5>
-              <h6 class="text-secondary">Kyle Brown</h6>
+              <h6 class="text-secondary">{{ listing.realtor }}</h6>
             </div>
           </div>
           <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Make An Inquiry</button>
