@@ -27,42 +27,9 @@
                       <label class="sr-only">State</label>
                       <select name="state" class="form-control">
                         <option selected="true" disabled="disabled">State (All)</option>
-                        <option value="AP">Andra Pradesh</option>
-                        <option value="AR">Arunachal Pradesh</option>
-                        <option value="AS">Assam</option>
-                        <option value="BH">Bihar</option>
-                        <option value="CH">Chhattisgarh</option>
-                        <option value="GO">Goa</option>
-                        <option value="GJ">Gujarat</option>
-                        <option value="HY">Haryana</option>
-                        <option value="HP">Himachal Pradesh</option>
-                        <option value="JK">Jammu and Kashmir</option>
-                        <option value="JH">Jharkand</option>
-                        <option value="KA">Karnataka</option>
-                        <option value="KL">Kerala</option>
-                        <option value="MP">Madhya Pradesh</option>
-                        <option value="MH">Maharashtra</option>
-                        <option value="MN">Manipur</option>
-                        <option value="MG">Meghalaya</option>
-                        <option value="MZ">Mizoram</option>
-                        <option value="NG">Nagaland</option>
-                        <option value="OD">Odisha</option>
-                        <option value="PJ">Punjab</option>
-                        <option value="RJ">Rajasthan</option>
-                        <option value="SI">Sikkim</option>
-                        <option value="TN">Tamil Nadu</option>
-                        <option value="TE">Telangana</option>
-                        <option value="TR">Tripura</option>
-                        <option value="UP">Uttar Pradesh</option>
-                        <option value="UT">Uttarakhand</option>
-                        <option value="WB">West Bengal</option>
-                        <option value="AN">Andaman Nicobar</option>
-                        <option value="CG">Chandigarh</option>
-                        <option value="DN">Dadra and Nagar Haveli</option>
-                        <option value="DD">Daman and Diu</option>
-                        <option value="DL">Delhi</option>
-                        <option value="LD">Lakshadweep</option>
-                        <option value="PU">Puducherry</option>
+                        {% for key,value in state_choices %}
+                          <option value="{{ key }}">{{ value }}</option>
+                        {% endfor %}
                         
                         
                       </select>
