@@ -1,80 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-<section id="top-bar" class="p-3">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <i class="fas fa-phone"></i> (617)-555-5555
-        </div>
-        <div class="col-md-4">
-          <i class="fas fa-envelope-open"></i> contact@btrealestate.co
-        </div>
-        <div class="col-md-4">
-          <div class="social text-right">
-            <a href="#">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#">
-              <i class="fab fa-facebook"></i>
-            </a>
-            <a href="#">
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="#">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#">
-              <i class="fab fa-pinterest"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">
-        <img src="assets/img/logo.png" class="logo" alt="">
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <ul class="navbar-nav">
-          <li class="nav-item mr-3">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-          <li class="nav-item mr-3">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-          <li class="nav-item mr-3">
-            <a class="nav-link" href="listings.html">Featured Listings</a>
-          </li>
-        </ul>
-
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item mr-3">
-            <a class="nav-link" href="register.html">
-              <i class="fas fa-user-plus"></i> Register</a>
-          </li>
-          <li class="nav-item mr-3">
-            <a class="nav-link" href="login.html">
-              <i class="fas fa-sign-in-alt"></i>
-
-              Login</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
 
   <section id="showcase-inner" class="showcase-search text-white py-5">
     <div class="container">
       <div class="row text-center">
         <div class="col-md-12">
-          <form action="search.html">
+          <form action="{% url 'search' %}">
             <!-- Form Row 1 -->
             <div class="form-row">
               <div class="col-md-4 mb-3">
@@ -91,42 +23,10 @@
                 <label class="sr-only">State</label>
                 <select name="state" class="form-control">
                   <option selected="true" disabled="disabled">State (All)</option>
-                  <option value="AL">Andra Pradesh</option>
-                        <option value="AK">Arunachal Pradesh</option>
-                        <option value="AZ">Assam</option>
-                        <option value="AR">Bihar</option>
-                        <option value="CA">Chhattisgarh</option>
-                        <option value="CO">Goa</option>
-                        <option value="CT">Gujarat</option>
-                        <option value="DE">Haryana</option>
-                        <option value="DC">Himachal Pradesh</option>
-                        <option value="FL">Jammu and Kashmir</option>
-                        <option value="GA">Jharkand</option>
-                        <option value="HI">Karnataka</option>
-                        <option value="ID">Kerala</option>
-                        <option value="IL">Madhya Pradesh</option>
-                        <option value="IN">Maharashtra</option>
-                        <option value="IA">Manipur</option>
-                        <option value="KS">Meghalaya</option>
-                        <option value="KY">Mizoram</option>
-                        <option value="LA">Nagaland</option>
-                        <option value="ME">Odisha</option>
-                        <option value="MD">Punjab</option>
-                        <option value="MA">Rajasthan</option>
-                        <option value="MI">Sikkim</option>
-                        <option value="MN">Tamil Nadu</option>
-                        <option value="MS">Telangana</option>
-                        <option value="MO">Tripura</option>
-                        <option value="MT">Uttar Pradesh</option>
-                        <option value="NE">Uttarakhand</option>
-                        <option value="NV">West Bengal</option>
-                        <option value="NH">Andaman Nicobar</option>
-                        <option value="NJ">Chandigarh</option>
-                        <option value="NM">Dadra and Nagar Haveli</option>
-                        <option value="NY">Daman and Diu</option>
-                        <option value="NC">Delhi</option>
-                        <option value="ND">Lakshadweep</option>
-                        <option value="OH">Puducherry</option>
+                  
+                  {% for key,value in state_choices.items %}
+                    <option value="{{ key }}">{{ value }}</option>
+                  {% endfor %}
                 </select>
               </div>
             </div>
@@ -136,31 +36,18 @@
                 <label class="sr-only">Bedrooms</label>
                 <select name="bedrooms" class="form-control">
                   <option selected="true" disabled="disabled">Bedrooms (Any)</option>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                  <option>6</option>
-                  <option>7</option>
-                  <option>8</option>
-                  <option>9</option>
-                  <option>10</option>
+                        {% for key,value in bedroom_choices.items %}
+                          <option value="{{ key }}">{{ value }}</option>
+                        {% endfor %}
                 </select>
               </div>
               <div class="col-md-6 mb-3">
                 <select name="price" class="form-control">
                   <option selected="true" disabled="disabled">Max Price (All)</option>
-                  <option value="100000">₹100,000</option>
-                        <option value="200000">₹200,000</option>
-                        <option value="300000">₹300,000</option>
-                        <option value="400000">₹400,000</option>
-                        <option value="500000">₹500,000</option>
-                        <option value="600000">₹600,000</option>
-                        <option value="700000">₹700,000</option>
-                        <option value="800000">₹800,000</option>
-                        <option value="900000">₹900,000</option>
-                        <option value="1000000">₹1M+</option>
+                  
+                  {% for key,value in price_choices.items %}
+                    <option value="{{ key }}">{{ value }}</option>
+                  {% endfor %}
                 </select>
               </div>
             </div>
@@ -193,264 +80,55 @@
   <section id="listings" class="py-4">
     <div class="container">
       <div class="row">
-
-        <!-- Listing 1 -->
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="card listing-preview">
-            <img class="card-img-top" src="assets/img/homes/home-1.jpg" alt="">
-            <div class="card-img-overlay">
-              <h2>
-                <span class="badge badge-secondary text-white">$490,000</span>
-              </h2>
-            </div>
-            <div class="card-body">
-              <div class="listing-heading text-center">
-                <h4 class="text-primary">{{ listing.title }}</h4>
-                <p>
-                  <i class="fas fa-map-marker text-secondary"></i> Norwood MA, 02062</p>
-              </div>
-              <hr>
-              <div class="row py-2 text-secondary">
-                <div class="col-6">
-                  <i class="fas fa-th-large"></i> Sqft: 3200</div>
-                <div class="col-6">
-                  <i class="fas fa-car"></i> Garage: 2</div>
-              </div>
-              <div class="row py-2 text-secondary">
-                <div class="col-6">
-                  <i class="fas fa-bed"></i> Bedrooms: 3</div>
-                <div class="col-6">
-                  <i class="fas fa-bath"></i> Bathrooms: 2</div>
-              </div>
-              <hr>
-              <div class="row py-2 text-secondary">
-                <div class="col-12">
-                  <i class="fas fa-user"></i> Kyle Brown</div>
-              </div>
-              <div class="row text-secondary pb-2">
-                <div class="col-6">
-                  <i class="fas fa-clock"></i> 2 days ago</div>
-              </div>
-              <hr>
-              <a href="listing.html" class="btn btn-primary btn-block">More Info</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Listing 2 -->
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="card listing-preview">
-            <img class="card-img-top" src="assets/img/homes/home-2.jpg" alt="">
-            <div class="card-img-overlay">
-              <h2>
-                <span class="badge badge-secondary text-white">$550,000</span>
-              </h2>
-            </div>
-            <div class="card-body">
-              <div class="listing-heading text-center">
-                <h4 class="text-primary">18 Jefferson Lane</h4>
-                <p>
-                  <i class="fas fa-map-marker text-secondary"></i> Woburn MA, 01801</p>
-              </div>
-              <hr>
-              <div class="row py-2 text-secondary">
-                <div class="col-6">
-                  <i class="fas fa-th-large"></i> Sqft: 3200</div>
-                <div class="col-6">
-                  <i class="fas fa-car"></i> Garage: 1</div>
-              </div>
-              <div class="row py-2 text-secondary">
-                <div class="col-6">
-                  <i class="fas fa-bed"></i> Bedrooms: 4</div>
-                <div class="col-6">
-                  <i class="fas fa-bath"></i> Bathrooms: 2.5</div>
-              </div>
-              <hr>
-              <div class="row py-2 text-secondary">
-                <div class="col-6">
-                  <i class="fas fa-user"></i> Mark Hudson</div>
-              </div>
-              <div class="row text-secondary pb-2">
-                <div class="col-6">
-                  <i class="fas fa-clock"></i> 5 days ago</div>
-              </div>
-              <hr>
-              <a href="listing.html" class="btn btn-primary btn-block">More Info</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Listing 3 -->
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="card listing-preview">
-            <img class="card-img-top" src="assets/img/homes/home-3.jpg" alt="">
-            <div class="card-img-overlay">
-              <h2>
-                <span class="badge badge-secondary text-white">$580,000</span>
-              </h2>
-            </div>
-            <div class="card-body">
-              <div class="listing-heading text-center">
-                <h4 class="text-primary">187 Woodrow Street</h4>
-                <p>
-                  <i class="fas fa-map-marker text-secondary"></i> Salem MA, 01915</p>
-              </div>
-              <hr>
-              <div class="row py-2 text-secondary">
-                <div class="col-6">
-                  <i class="fas fa-th-large"></i> Sqft: 3107</div>
-                <div class="col-6">
-                  <i class="fas fa-car"></i> Garage: 0</div>
-              </div>
-              <div class="row py-2 text-secondary">
-                <div class="col-6">
-                  <i class="fas fa-bed"></i> Bedrooms: 4</div>
-                <div class="col-6">
-                  <i class="fas fa-bath"></i> Bathrooms: 3</div>
-              </div>
-              <hr>
-              <div class="row py-2 text-secondary">
-                <div class="col-6">
-                  <i class="fas fa-user"></i> Mark Hudson</div>
-              </div>
-              <div class="row text-secondary pb-2">
-                <div class="col-6">
-                  <i class="fas fa-clock"></i> 5 days ago</div>
-              </div>
-              <hr>
-              <a href="listing.html" class="btn btn-primary btn-block">More Info</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Listing 4 -->
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="card listing-preview">
-            <img class="card-img-top" src="assets/img/homes/home-4.jpg" alt="">
-            <div class="card-img-overlay">
-              <h2>
-                <span class="badge badge-secondary text-white">$380,000</span>
-              </h2>
-            </div>
-            <div class="card-body">
-              <div class="listing-heading text-center">
-                <h4 class="text-primary">28 Gifford Street</h4>
-                <p>
-                  <i class="fas fa-map-marker text-secondary"></i> Bedford NH, 03103</p>
-              </div>
-              <hr>
-              <div class="row py-2 text-secondary">
-                <div class="col-6">
-                  <i class="fas fa-th-large"></i> Sqft: 2927</div>
-                <div class="col-6">
-                  <i class="fas fa-car"></i> Garage: 2</div>
-              </div>
-              <div class="row py-2 text-secondary">
-                <div class="col-6">
-                  <i class="fas fa-bed"></i> Bedrooms: 4</div>
-                <div class="col-6">
-                  <i class="fas fa-bath"></i> Bathrooms: 2</div>
-              </div>
-              <hr>
-              <div class="row py-2 text-secondary">
-                <div class="col-6">
-                  <i class="fas fa-user"></i> Jenny Johnson</div>
-              </div>
-              <div class="row text-secondary pb-2">
-                <div class="col-6">
-                  <i class="fas fa-clock"></i> 5 days ago</div>
-              </div>
-              <hr>
-              <a href="listing.html" class="btn btn-primary btn-block">More Info</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Listing 5 -->
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="card listing-preview">
-            <img class="card-img-top" src="assets/img/homes/home-5.jpg" alt="">
-            <div class="card-img-overlay">
-              <h2>
-                <span class="badge badge-secondary text-white">$230,000</span>
-              </h2>
-            </div>
-            <div class="card-body">
-              <div class="listing-heading text-center">
-                <h4 class="text-primary">12 United Road</h4>
-                <p>
-                  <i class="fas fa-map-marker text-secondary"></i> South Hampton NH, 03827</p>
-              </div>
-              <hr>
-              <div class="row py-2 text-secondary">
-                <div class="col-6">
-                  <i class="fas fa-th-large"></i> Sqft: 2207</div>
-                <div class="col-6">
-                  <i class="fas fa-car"></i> Garage: 1</div>
-              </div>
-              <div class="row py-2 text-secondary">
-                <div class="col-6">
-                  <i class="fas fa-bed"></i> Bedrooms: 3</div>
-                <div class="col-6">
-                  <i class="fas fa-bath"></i> Bathrooms: 1.5</div>
-              </div>
-              <hr>
-              <div class="row py-2 text-secondary">
-                <div class="col-6">
-                  <i class="fas fa-user"></i> Kyle Brown</div>
-              </div>
-              <div class="row text-secondary pb-2">
-                <div class="col-6">
-                  <i class="fas fa-clock"></i> 5 days ago</div>
-              </div>
-              <hr>
-              <a href="listing.html" class="btn btn-primary btn-block">More Info</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Listing 6 -->
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="card listing-preview">
-            <img class="card-img-top" src="assets/img/homes/home-6.jpg" alt="">
-            <div class="card-img-overlay">
-              <h2>
-                <span class="badge badge-secondary text-white">$780,000</span>
-              </h2>
-            </div>
-            <div class="card-body">
-              <div class="listing-heading text-center">
-                <h4 class="text-primary">33 Essex Circle</h4>
-                <p>
-                  <i class="fas fa-map-marker text-secondary"></i> Lexington MA, 01731</p>
-              </div>
-              <hr>
-              <div class="row py-2 text-secondary">
-                <div class="col-6">
-                  <i class="fas fa-th-large"></i> Sqft: 4145</div>
-                <div class="col-6">
-                  <i class="fas fa-car"></i> Garage: 1</div>
-              </div>
-              <div class="row py-2 text-secondary">
-                <div class="col-6">
-                  <i class="fas fa-bed"></i> Bedrooms: 5</div>
-                <div class="col-6">
-                  <i class="fas fa-bath"></i> Bathrooms: 3.5</div>
-              </div>
-              <hr>
-              <div class="row py-2 text-secondary">
-                <div class="col-6">
-                  <i class="fas fa-user"></i> Kyle Brown</div>
-              </div>
-              <div class="row text-secondary pb-2">
-                <div class="col-6">
-                  <i class="fas fa-clock"></i> 5 days ago</div>
-              </div>
-              <hr>
-              <a href="listing.html" class="btn btn-primary btn-block">More Info</a>
-            </div>
-          </div>
-        </div>
+        {% if listings %}
+              {% for listing in listings %}
+              <div class="col-md-6 col-lg-4 mb-4">
+                  <div class="card listing-preview">
+                    <img class="card-img-top" src="{{ listing.photo_main.url }}" alt="">
+                    <div class="card-img-overlay">
+                      <h2>
+                        <span class="badge badge-secondary text-white">${{ listing.price }}</span>
+                      </h2>
+                    </div>
+                    <div class="card-body">
+                      <div class="listing-heading text-center">
+                        <h4 class="text-primary">{{ listing.title }}</h4>
+                        <p>
+                          <i class="fas fa-map-marker text-secondary"></i> {{ listing.city }} {{ listing.state }}, {{ listing.zipcode }}</p>
+                      </div>
+                      <hr>
+                      <div class="row py-2 text-secondary">
+                        <div class="col-6">
+                          <i class="fas fa-th-large"></i> Sqft: {{ listing.sqft }}</div>
+                        <div class="col-6">
+                          <i class="fas fa-car"></i> Garage: {{ listing.garage }}</div>
+                      </div>
+                      <div class="row py-2 text-secondary">
+                        <div class="col-6">
+                          <i class="fas fa-bed"></i> Bedrooms: {{ listing.bedrooms }}</div>
+                        <div class="col-6">
+                          <i class="fas fa-bath"></i> Bathrooms: {{ listing.bathrooms }}</div>
+                      </div>
+                      <hr>
+                      <div class="row py-2 text-secondary">
+                        <div class="col-12">
+                          <i class="fas fa-user"></i>{{ listing.realtor }}</div>
+                      </div>
+                      <div class="row text-secondary pb-2">
+                        <div class="col-6">
+                          <i class="fas fa-clock"></i>{{ listing.list_data | timesince }}</div>
+                      </div>
+                      <hr>
+                      <a href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block">More Info</a>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            {% else %}
+              <div class="col-md-12">
+                <p>No Listings Available</p>
+              </div> 
+            {% endif %} 
 
       </div>
     </div>
