@@ -10,6 +10,8 @@
                 <i class="fas fa-user-plus"></i> Register</h4>
             </div>
             <div class="card-body">
+                <!--Alerts-->
+                {% include 'partials/_alert.html'%}
                 <form action="{% url 'register' %}" method="POST">
                         {% csrf_token %}
                   <div class="form-group">
