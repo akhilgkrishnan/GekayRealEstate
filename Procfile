@@ -1,1 +1,1 @@
-web: gunicorn gekayestate.wsgi
+web: gunicorn djangofirst.wsgi
