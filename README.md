@@ -4,7 +4,7 @@ Use this app by clickng this url : https://gekayestate.herokuapp.com
 
 ## Prerequisites
 
-* Python 2.7 +
+* Python 3.7 +
 * Django 2.0 or more 
 * PostgreSQL 
 
