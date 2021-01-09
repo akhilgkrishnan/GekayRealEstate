@@ -1,70 +1,70 @@
 {% extends "base.html" %}{% block content %}
   <!-- Showcase sample -->
   <section id="showcase">
-        <div class="container text-center">
-          <div class="home-search p-5">
-            <div class="overlay p-5">
-              <h1 class="display-4 mb-4">
-                Property Searching Just Got So Easy
-              </h1>
-              <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae quas, asperiores eveniet vel nostrum magnam
-                voluptatum tempore! Consectetur, id commodi!</p>
-              <div class="search">
-                <form action="{% url 'search' %}">
-                  <!-- Form Row 1 -->
-                  <div class="form-row">
-                    <div class="col-md-4 mb-3">
-                      <label class="sr-only">Keywords</label>
-                      <input type="text" name="keywords" class="form-control" placeholder="Keyword (Pool, Garage, etc)">
-                    </div>
-    
-                    <div class="col-md-4 mb-3">
-                      <label class="sr-only">City</label>
-                      <input type="text" name="city" class="form-control" placeholder="City">
-                    </div>
-    
-                    <div class="col-md-4 mb-3">
-                      <label class="sr-only">State</label>
-                      <select name="state" class="form-control">
-                        <option selected="true" disabled="disabled">State (All)</option>
-                        {% for key,value in state_choices.items %}
-                          <option value="{{ key }}">{{ value }}</option>
-                        {% endfor %}
-                        
-                        
-                      </select>
-                    </div>
-                  </div>
-                  <!-- Form Row 2 -->
-                  <div class="form-row">
-                    <div class="col-md-6 mb-3">
-                      <label class="sr-only">Bedrooms</label>
-                      <select name="bedrooms" class="form-control">
-                        <option selected="true" disabled="disabled">Bedrooms (All)</option>
-                        {% for key,value in bedroom_choices.items %}
-                          <option value="{{ key }}">{{ value }}</option>
-                        {% endfor %}
-                      </select>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                      <select name="price" class="form-control" id="type">
-                        <option selected="true" disabled="disabled">Max Price (Any)</option>
-                        {% for key,value in price_choices.items %}
-                          <option value="{{ key }}">{{ value }}</option>
-                        {% endfor %}
-                      </select>
-                    </div>
-                  </div>
-                  <button class="btn btn-secondary btn-block mt-4" type="submit">Submit form</button>
-                </form>
+    <div class="container text-center">
+      <div class="home-search p-5">
+        <div class="overlay p-5">
+          <h1 class="display-4 mb-4">
+            Property Searching Just Got So Easy
+          </h1>
+          <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae quas, asperiores eveniet vel nostrum magnam
+            voluptatum tempore! Consectetur, id commodi!</p>
+          <div class="search">
+            <form action="{% url 'search' %}">
+              <!-- Form Row 1 -->
+              <div class="form-row">
+                <div class="col-md-4 mb-3">
+                  <label class="sr-only">Keywords</label>
+                  <input type="text" name="keywords" class="form-control" placeholder="Keyword (Pool, Garage, etc)">
+                </div>
+
+                <div class="col-md-4 mb-3">
+                  <label class="sr-only">City</label>
+                  <input type="text" name="city" class="form-control" placeholder="City">
+                </div>
+
+                <div class="col-md-4 mb-3">
+                  <label class="sr-only">State</label>
+                  <select name="state" class="form-control">
+                    <option selected="true" disabled="disabled">State (All)</option>
+                    {% for key,value in state_choices.items %}
+                      <option value="{{ key }}">{{ value }}</option>
+                    {% endfor %}
+
+
+                  </select>
+                </div>
               </div>
-            </div>
+              <!-- Form Row 2 -->
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label class="sr-only">Bedrooms</label>
+                  <select name="bedrooms" class="form-control">
+                    <option selected="true" disabled="disabled">Bedrooms (All)</option>
+                    {% for key,value in bedroom_choices.items %}
+                      <option value="{{ key }}">{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <select name="price" class="form-control" id="type">
+                    <option selected="true" disabled="disabled">Max Price (Any)</option>
+                    {% for key,value in price_choices.items %}
+                      <option value="{{ key }}">{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+              <button class="btn btn-secondary btn-block mt-4" type="submit">Submit form</button>
+            </form>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
 
-      <!--Alert-->
-      {% include 'partials/_alerts.html' %}
+<!--Alert-->
+{% include 'partials/_alerts.html' %}
       <!-- Listings -->
       <section id="listings" class="py-5">
         <div class="container">
@@ -115,16 +115,16 @@
                 </div>
               </div>
               {% endfor %}
-            {% else %} 
+            {% else %}
               <div class="col-md-12">
                 <p>No listing Available</p>
-              </div> 
+              </div>
             {% endif %}
-            
+
           </div>
         </div>
       </section>
-    
+
       <section id="services" class="py-5 bg-secondary text-white">
         <div class="container">
           <div class="row text-center">
@@ -151,5 +151,5 @@
             </div>
           </div>
         </div>
-      </section> 
+      </section>
 {% endblock %}
